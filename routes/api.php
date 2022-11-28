@@ -27,3 +27,4 @@ Route::controller(TaskController::class)->prefix('/task')->group(function() {
     # Delete a task
     Route::delete('/{task}', 'delete');
 });
+
