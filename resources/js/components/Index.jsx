@@ -17,32 +17,32 @@ function Index() {
         if (tasks.length == 0) return;
 
         let data = [];
-        let days = [];
+        let added = [];
         for (let i in tasks) {
             let task = tasks[i];
             let date = new Date(task.created_at);
 
-            if (!days.includes(date.getDay())) {
+            if (!added.includes(date.toLocaleDateString())) {
                 let count = tasks.reduce(
                     (s, item) =>
                         s +
-                        (new Date(item.created_at).getDay() == date.getDay()),
+                        (new Date(item.created_at).toLocaleDateString() == date.toLocaleDateString()),
                     0
                 );
 
                 data.push({
-                    day: date.toLocaleDateString(),
+                    date: date.toLocaleDateString(),
                     count: count,
                 });
 
-                days.push(date.getDay());
+                added.push(date.toLocaleDateString());
             }
         }
 
         new Chart(document.getElementById("chart"), {
             type: "bar",
             data: {
-                labels: data.map((data) => data.day),
+                labels: data.map((data) => data.date),
                 datasets: [
                     {
                         label: "Total Tasks",
