@@ -94,36 +94,6 @@ class Form extends React.Component {
 const Index = () => (
     <Tasks/>
     );
-// class TestForm extends React.Component {
-//     constructor(props) {
-//         super(props);
-//         this.handleSubmit = this.handleSubmit.bind(this);
-//     }
-
-//     handleSubmit = (e) => {
-//         e.preventDefault();
-
-//         let formData = new FormData(e.target);
-//         console.log('Name: ' + formData.get('name'))
-//         console.log('Description: ' + formData.get('description'))
-//     };
-
-//     render() {
-//         return (
-//             <form onSubmit={this.handleSubmit}>
-//                 <input type="text" name="name" placeholder="Title" />
-//                 <br />
-//                 <input
-//                     type="text"
-//                     name="description"
-//                     placeholder="Description"
-//                 />
-//                 <br />
-//                 <button type="submit"> Submit </button>
-//             </form>
-//         );
-//     }
-// }
 
 const root = ReactDOM.createRoot(document.getElementById("app"));
 root.render(<Index />);
