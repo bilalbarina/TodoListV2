@@ -26,7 +26,8 @@ function Index() {
                 let count = tasks.reduce(
                     (s, item) =>
                         s +
-                        (new Date(item.created_at).toLocaleDateString() == date.toLocaleDateString()),
+                        (new Date(item.created_at).toLocaleDateString() ==
+                            date.toLocaleDateString()),
                     0
                 );
 
@@ -72,16 +73,19 @@ function Index() {
     );
 }
 
-// export default Index;
-
-if (document.getElementById("app")) {
-    const Root = ReactDOM.createRoot(document.getElementById("app"));
-    Root.render(
+function App() {
+    return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Index />}></Route>
-                <Route path="/edit/:id" element={<EditTask />}></Route>
+                <Route exact path="/" element={<Index />}></Route>
+                <Route exact path="/home" element={<Index />}></Route>
+                <Route exact path="/edit/:id" element={<EditTask />}></Route>
             </Routes>
         </BrowserRouter>
     );
+}
+
+if (document.getElementById("app")) {
+    const Root = ReactDOM.createRoot(document.getElementById("app"));
+    Root.render(<App />);
 }
